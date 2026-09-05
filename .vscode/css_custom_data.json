@@ -1,0 +1,41 @@
+{
+	"version": 1.1,
+	"atDirectives": [
+		{
+			"name": "@theme",
+			"description": "Tailwind CSS theme tokens and design tokens."
+		},
+		{
+			"name": "@source",
+			"description": "Tailwind CSS content source path."
+		},
+		{
+			"name": "@plugin",
+			"description": "Load a Tailwind CSS plugin from CSS."
+		},
+		{
+			"name": "@custom-variant",
+			"description": "Define a custom Tailwind CSS variant, such as class-based dark mode."
+		},
+		{
+			"name": "@utility",
+			"description": "Define a custom Tailwind CSS utility."
+		},
+		{
+			"name": "@variant",
+			"description": "Apply a Tailwind CSS variant inside a custom utility."
+		},
+		{
+			"name": "@apply",
+			"description": "Inline Tailwind CSS utilities into a CSS rule."
+		},
+		{
+			"name": "@config",
+			"description": "Load a Tailwind CSS JavaScript config file."
+		},
+		{
+			"name": "@reference",
+			"description": "Reference Tailwind CSS theme values without emitting styles."
+		}
+	]
+}
