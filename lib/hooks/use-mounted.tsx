@@ -1,11 +1,9 @@
-import * as React from 'react';
+'use client';
+
+import { useSyncExternalStore } from 'react';
+
+const emptySubscribe = () => () => {};
 
 export function useMounted() {
-  const [mounted, setMounted] = React.useState(false);
-
-  React.useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  return mounted;
+  return useSyncExternalStore(emptySubscribe, () => true, () => false);
 }

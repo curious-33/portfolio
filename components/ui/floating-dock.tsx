@@ -4,6 +4,7 @@ import { type VariantProps, cva } from 'class-variance-authority';
 import {
   AnimatePresence,
   type HTMLMotionProps,
+  type MotionValue,
   motion,
   useAnimation,
   useMotionValue,
@@ -30,12 +31,8 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
 
     const renderChildren = () => {
       return React.Children.map(children, (child) => {
-        if (React.isValidElement(child) && child.type === DockIcon) {
-          return React.cloneElement(child, {
-            // @ts-ignore
-            ...child.props,
-            mouseX: mouseX,
-          });
+        if (React.isValidElement<DockIconProps>(child) && child.type === DockIcon) {
+          return React.cloneElement(child, { mouseX });
         }
         return child;
       });
@@ -61,15 +58,13 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
 Dock.displayName = 'Dock';
 
 export interface DockIconProps extends HTMLMotionProps<'div'> {
-  size?: number;
   title?: string;
-  mouseX?: any;
+  mouseX?: MotionValue<number>;
   className?: string;
   children?: React.ReactNode;
 }
 
 const DockIcon = ({
-  size,
   mouseX,
   title,
   className,
@@ -78,8 +73,10 @@ const DockIcon = ({
 }: DockIconProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const controls = useAnimation();
+  const fallbackMouseX = useMotionValue(Number.POSITIVE_INFINITY);
+  const trackedMouseX = mouseX ?? fallbackMouseX;
 
-  const distance = useTransform(mouseX, (val: number) => {
+  const distance = useTransform(trackedMouseX, (val: number) => {
     const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
     return val - bounds.x - bounds.width / 2;
   });
@@ -144,13 +141,15 @@ const DockIcon = ({
         )}
       </AnimatePresence>
       <motion.div className="flex h-full w-full items-center justify-center overflow-hidden rounded-full">
-        {React.Children.map(children, (child: any) => {
-          if (React.isValidElement(child) && child.type !== DockIconActiveDot) {
-            return React.cloneElement(child as any, {
-              // @ts-ignore
+        {React.Children.map(children, (child) => {
+          if (
+            React.isValidElement<{ className?: string }>(child) &&
+            child.type !== DockIconActiveDot
+          ) {
+            return React.cloneElement(child, {
               className: cn(
                 'flex h-full w-full items-center justify-center',
-                (child as any).props.className
+                child.props.className
               ),
             });
           }

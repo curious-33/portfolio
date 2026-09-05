@@ -1,36 +1,31 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useSyncExternalStore } from 'react';
+
+const timeFormat: Intl.DateTimeFormatOptions = {
+  hour: 'numeric',
+  minute: 'numeric',
+  second: 'numeric',
+  hour12: true,
+};
+
+function formatNow() {
+  return new Date().toLocaleString('en-US', timeFormat);
+}
+
+function subscribe(onStoreChange: () => void) {
+  const interval = setInterval(onStoreChange, 1000);
+  return () => clearInterval(interval);
+}
+
+function getSnapshot() {
+  return formatNow();
+}
+
+function getServerSnapshot() {
+  return '';
+}
 
 export function useTime() {
-  const [time, setTime] = useState('');
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-
-    const updateTime = () => {
-      const now = new Date();
-      setTime(
-        now.toLocaleString('en-US', {
-          hour: 'numeric',
-          minute: 'numeric',
-          second: 'numeric',
-          hour12: true,
-        })
-      );
-    };
-
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  // Return empty string during SSR
-  if (!mounted) {
-    return '';
-  }
-
-  return time;
+  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 }

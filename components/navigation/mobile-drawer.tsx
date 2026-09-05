@@ -1,4 +1,8 @@
 import { ArrowUpRightIcon, AtSignIcon, CommandIcon } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { memo, useState, type ReactNode } from 'react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -13,9 +17,6 @@ import { USER } from '@/lib/config/user';
 import { DockConfig } from '@/lib/config';
 import { useMounted } from '@/lib/hooks/use-mounted';
 import { cn } from '@/lib/utils';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { memo, useState } from 'react';
 
 export function MobileDrawer() {
   const [open, setOpen] = useState(false);
@@ -54,12 +55,11 @@ export function MobileDrawer() {
                 className="link-card inline-flex items-center gap-2 p-2"
                 onClick={() => setOpen(false)}
               >
-                <img
+                <Image
                   src={USER.image.profile}
                   alt={USER.name}
                   width={40}
                   height={40}
-                  loading="lazy"
                   className="rounded-full border shadow-xs"
                 />
                 <div className="flex flex-col">
@@ -107,7 +107,19 @@ export function MobileDrawer() {
   );
 }
 
-export const NavigationLink = memo(({ href, label, icon, onClose }: any) => {
+type NavigationLinkProps = {
+  href: string;
+  label: string;
+  icon: ReactNode;
+  onClose: () => void;
+};
+
+export const NavigationLink = memo(function NavigationLink({
+  href,
+  label,
+  icon,
+  onClose,
+}: NavigationLinkProps) {
   const pathname = usePathname();
   const iconCmp = icon ?? <AtSignIcon size={16} />;
 
