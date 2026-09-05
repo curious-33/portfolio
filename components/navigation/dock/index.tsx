@@ -7,7 +7,7 @@ import {
   Dock,
   DockIcon,
   DockIconActiveDot,
-} from '@/components/shared/compoenents/floating-dock';
+} from '@/components/ui/floating-dock';
 import { DockConfig } from '@/lib/config';
 import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
@@ -20,21 +20,16 @@ function BottomDock({ className }: { className: string }) {
   const pathname = usePathname();
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Helper function to determine if a dock item should be active
   const isItemActive = (itemHref: string) => {
-    // For the home route "/", only match exactly
     if (itemHref === '/') {
       return pathname === '/';
     }
-    // For all other routes, match if current path starts with the item href
     return pathname.startsWith(itemHref);
   };
 
-  // const { data: session } = useSession();
-
   const startTimeout = () => {
     if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current); // Clear any existing timeout
+      clearTimeout(timeoutRef.current);
       timeoutRef.current = setTimeout(() => {
         setActive(false);
       }, DOCK_AUTOHIDE_TIMEOUT);
@@ -55,11 +50,11 @@ function BottomDock({ className }: { className: string }) {
       onMouseEnter={() => {
         setActive(true);
         if (timeoutRef.current) {
-          clearTimeout(timeoutRef.current); // Clear timeout when mouse enters
+          clearTimeout(timeoutRef.current);
         }
       }}
       onMouseLeave={() => {
-        startTimeout(); // Start timeout when mouse leaves
+        startTimeout();
       }}
       className={cn(
         '-translate-x-1/2 fixed bottom-0 left-1/2 z-40 h-[clamp(80px,10vh,200px)] w-full',
@@ -74,9 +69,7 @@ function BottomDock({ className }: { className: string }) {
       >
         {DockConfig.navbar.map((item) => (
           <DockIcon key={item.label} title={item.label}>
-            <Link
-              href={item.href}
-            >
+            <Link href={item.href}>
               <item.icon className="size-4" />
             </Link>
             {isItemActive(item.href) && (
@@ -87,46 +80,15 @@ function BottomDock({ className }: { className: string }) {
         <DockSeperator />
         {Object.entries(DockConfig.contact.social).map(([name, social]) => (
           <DockIcon key={name} title={name}>
-            <Link
-              href={social.url}
-              target="_blank"
-              onClick={() => {
-                if (social.url.startsWith('mailto:')) {
-                  const email = social.url.replace('mailto:', '');
-                }
-              }}
-            >
+            <Link href={social.url} target="_blank">
               <social.icon className="size-4" />
             </Link>
           </DockIcon>
         ))}
         <DockSeperator />
-        
-
         <DockIcon title={'Theme'}>
           <ModeToggle />
         </DockIcon>
-
-        {/* <DockIcon
-          onMouseUp={async () => {
-            if (session?.user?.email) {
-              await signOut();
-            } else {
-              await signIn("github");
-            }
-          }}
-          title={session?.user?.name ?? "Login"}
-        >
-          {session?.user?.email ? (
-            <Image src={session?.user?.image} alt="Guestbook" fill />
-          ) : (
-            <Icons.signin className="size-4" />
-          )}
-        </DockIcon> */}
-
-        {/* <DockFolder title="Guestbook">
-          <DockIcon title="Guestbook"></DockIcon>
-        </DockFolder> */}
       </Dock>
     </div>
   );

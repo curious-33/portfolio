@@ -1,4 +1,3 @@
-import { createOgImage } from '@/lib/createOgImage';
 import { fontMono, fontX } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
 import type { Metadata, Viewport } from 'next';
@@ -9,7 +8,6 @@ import './globals.css';
 import Navigation from '@/components/navigation';
 import { META_THEME_COLORS } from '@/lib/config/site';
 import { USER } from '@/lib/config/user';
-import { auth } from '@/lib/auth';
 import { Providers } from '@/lib/providers';
 import { themeInitScript } from '@/lib/theme-init-script';
 import Script from 'next/script';
@@ -31,9 +29,9 @@ export function generateMetadata(): Metadata {
       url: `https://${USER.domain}`,
       images: [
         {
-          url: createOgImage({ title: USER.name, meta: USER.tagline }),
-          width: 1600,
-          height: 836,
+          url: USER.image.profile,
+          width: 1200,
+          height: 630,
           alt: USER.name,
         },
       ],
@@ -45,13 +43,11 @@ export function generateMetadata(): Metadata {
   };
 }
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const session = await auth();
-
   return (
     <html
       lang="en"
@@ -69,7 +65,7 @@ export default async function RootLayout({
           id="theme-init"
           src={`data:text/javascript;base64,${btoa(themeInitScript)}`}
         />
-        <Providers session={session}>
+        <Providers>
           <Navigation />
           <main
             id="main-content"

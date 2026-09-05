@@ -60,6 +60,9 @@ export function GitHubContributionGraph({
         fontSize={11}
         blockSize={9}
         blockMargin={3}
+        labels={{
+          totalCount: '{{count}} on GitHub in {{year}}',
+        }}
       >
         <ContributionGraphCalendar className="no-scrollbar">
           {({ activity, dayIndex, weekIndex }) => (

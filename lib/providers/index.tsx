@@ -2,19 +2,15 @@
 
 import { themeInitScript } from '@/lib/theme-init-script';
 import { TooltipProvider } from '@/components/ui/tooltip';
-import type { Session } from 'next-auth';
-import { SessionProvider } from 'next-auth/react';
 import { useServerInsertedHTML } from 'next/navigation';
 import { ThemeProvider as NextThemeProvider } from 'next-themes';
 import { useRef } from 'react';
 
 export function Providers({
   children,
-  session,
   ...props
 }: {
   children: React.ReactNode;
-  session: Session | null;
 }) {
   const themeInitInserted = useRef(false);
 
@@ -44,9 +40,7 @@ export function Providers({
         typeof window === 'undefined' ? undefined : { type: 'application/json' }
       }
     >
-      <TooltipProvider>
-        <SessionProvider session={session}>{children}</SessionProvider>
-      </TooltipProvider>
+      <TooltipProvider>{children}</TooltipProvider>
     </NextThemeProvider>
   );
 }

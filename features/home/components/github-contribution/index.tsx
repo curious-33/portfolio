@@ -11,8 +11,14 @@ export function GitHubContribution() {
   );
 
   return (
-    <>
-      <h2 className="sr-only">GitHub Contribution</h2>
+    <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-1">
+        <h2 className="font-medium text-lg">GitHub</h2>
+        <p className="text-sm text-muted-foreground">
+          Public GitHub activity. Most client work lives on Bitbucket, so this
+          is only a slice.
+        </p>
+      </div>
 
       <Suspense fallback={<GitHubContributionFallback />}>
         <GitHubContributionGraph
@@ -20,6 +26,6 @@ export function GitHubContribution() {
           contributionsByYear={contributionsByYear}
         />
       </Suspense>
-    </>
+    </div>
   );
 }

@@ -14,7 +14,7 @@ export const SelfImage = () => (
 
 export const ProfileImage = () => {
   return (
-    <div className="relative mx-[2px] my-[3px] size-20">
+    <div className="relative mx-[2px] my-[3px] size-25">
       <img
         src={USER.image.profile}
         fetchPriority="high"

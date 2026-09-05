@@ -6,26 +6,18 @@ import { USER } from '@/lib/config/user';
 import { GitHubContribution } from '@/features/home/components/github-contribution';
 import Info from '@/features/home/components/info';
 import { Projects } from '@/features/home/components/projects';
-import { createOgImage } from '@/lib/createOgImage';
 import { JsonLd, type Organization, type WithContext } from '@/lib/seo/json-ld';
 import { createMetadata } from '@/lib/seo/metadata';
 import { FlipSentences } from '@/components/ui/flip-sentences';
 import type { Metadata } from 'next/types';
 
-// Force static generation at build time
-export const dynamic = 'force-static';
-
 export async function generateMetadata(): Promise<Metadata> {
   const title = USER.tagline;
   const description = USER.description;
-  const image = createOgImage({
-    title: title,
-    meta: description,
-  });
   return createMetadata({
     title: title,
     description: description,
-    image: image,
+    image: USER.image.profile,
   });
 }
 
@@ -50,8 +42,13 @@ export default async function Page() {
                   <h1 className="font-semibold text-3xl sm:text-l">
                     {USER.firstName}
                   </h1>
-                  <PronounceMyName namePronunciationUrl="./assets/ritesh-bucha.mp3" />
+                  <PronounceMyName
+                    namePronunciationUrl={USER.namePronunciationUrl}
+                  />
                 </div>
+                <p className="text-sm text-muted-foreground">
+                  If that&apos;s hard to pronounce, Curious is fine.
+                </p>
                 <FlipSentences sentences={USER.flipSentences} />
               </div>
             </header>
@@ -78,13 +75,6 @@ export default async function Page() {
             <section>
               <Projects />
             </section>
-
-            {/* <section>
-              <h2 className="font-medium text-lg">Where</h2>
-              <ViewMagnifier>
-                <MapLocation />
-              </ViewMagnifier>
-            </section> */}
           </div>
         </div>
       </ScrollArea>

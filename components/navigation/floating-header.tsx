@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowLeftIcon, RadioIcon } from 'lucide-react';
+import { ArrowLeftIcon } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';

@@ -44,16 +44,17 @@ export function ProjectItem({
           )}
         >
           {project.logo ? (
-            <Image
-              src={project.logo}
-              alt={project.title}
-              width={32}
-              height={32}
-              quality={100}
-              className="mx-4 flex size-6 shrink-0 select-none"
-              unoptimized
-              aria-hidden="true"
-            />
+            <div className="mx-4 size-6 shrink-0 overflow-hidden select-none">
+              <Image
+                src={project.logo}
+                alt=""
+                width={32}
+                height={32}
+                className="size-full object-cover object-left"
+                unoptimized
+                aria-hidden="true"
+              />
+            </div>
           ) : (
             <div
               className="mx-4 flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-muted-foreground ring-1 ring-edge ring-offset-1 ring-offset-background select-none"

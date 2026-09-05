@@ -5,7 +5,6 @@ export const DockConfig = {
   navbar: [
     { href: '/', icon: Icons.home, label: 'Home' },
     { href: '/cal', icon: Icons.calendar, label: 'Book a Meeting' },
-    // { href: "/resume", icon: Icons.resume, label: "Resume" },
   ],
   contact: {
     social: {

@@ -3,8 +3,8 @@
 import { Collapsible as CollapsiblePrimitive } from 'radix-ui';
 import { createContext, useContext, useEffect, useRef, useState } from 'react';
 
-import type { ChevronsDownUpIconHandle } from '../animated-icons/chevrons-down-up-icon';
-import { ChevronsDownUpIcon } from '../animated-icons/chevrons-down-up-icon';
+import type { ChevronsDownUpIconHandle } from '../icons/chevrons-down-up-icon';
+import { ChevronsDownUpIcon } from '../icons/chevrons-down-up-icon';
 
 function Collapsible(
   props: React.ComponentProps<typeof CollapsiblePrimitive.Root>

@@ -56,7 +56,7 @@ export function MobileDrawer() {
               >
                 <img
                   src={USER.image.profile}
-                  alt="Ritesh"
+                  alt={USER.name}
                   width={40}
                   height={40}
                   loading="lazy"

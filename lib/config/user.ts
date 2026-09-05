@@ -1,5 +1,3 @@
-import { type Experience, experiences } from './experience';
-
 export type User = {
   firstName: string;
   lastName: string;
@@ -23,7 +21,6 @@ export type User = {
     profile: string;
   };
   flipSentences: string[];
-  experiences?: Experience[];
 };
 
 const USER: User = {
@@ -39,7 +36,7 @@ const USER: User = {
   location: 'Tashkent, Uzbekistan',
   description:
     "My journey of building products, solving problems, and growing as an engineer.",
-  namePronunciationUrl: 'https://bucharitesh.in/assets/ritesh-bucha.mp3',
+  namePronunciationUrl: '/assets/name-pronunciation.mp3',
   social: {
     twitter: 'https://twitter.com/curi0us_33',
     github: 'https://github.com/curious-33',
@@ -58,7 +55,6 @@ const USER: User = {
     profile:
       'https://res.cloudinary.com/curious-cloud/image/upload/v1788180369/curious.jpg',
   },
-  experiences: experiences,
 };
 
 USER.website = `https://${USER.domain}`;

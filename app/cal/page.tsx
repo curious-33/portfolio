@@ -1,12 +1,9 @@
 import { FloatingHeader } from '@/components/navigation/floating-header';
 import { ScrollArea } from '@/components/scroll-area';
 import CalEmbed from '@/features/cal';
-import { createOgImage } from '@/lib/createOgImage';
+import { USER } from '@/lib/config/user';
 import { createMetadata } from '@/lib/seo/metadata';
 import type { Metadata } from 'next/types';
-
-// Force static generation at build time
-export const dynamic = 'force-static';
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = 'Book a Meeting';
@@ -16,10 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return createMetadata({
     title: title,
     description: description,
-    image: createOgImage({
-      title: title,
-      meta: description,
-    }),
+    image: USER.image.profile,
   });
 }
 

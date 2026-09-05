@@ -1,7 +1,7 @@
 import { visit } from 'unist-util-visit';
 
 import { addQueryParams } from '@/lib/url';
-import type { UnistNode, UnistTree } from '@/types/unist';
+import type { UnistNode, UnistTree } from '@/lib/types/unist';
 
 export function rehypeAddQueryParams(params: Record<string, string>) {
   return (tree: UnistTree) => {
