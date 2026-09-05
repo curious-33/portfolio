@@ -29,7 +29,7 @@ const USER: User = {
   name: 'Mukhammad Sodik Ismoilov',
   email: 'mukhammadsodik.uz@gmail.com',
   domain: 'curious.uz',
-  jobTitle: 'Senior Frontend Engineer',
+  jobTitle: 'Software Engineer',
   username: 'curious-33',
   tagline: 'Design meets engineering.',
   twitterHandle: '@curi0us_33',
@@ -45,7 +45,7 @@ const USER: User = {
   flipSentences: [
     'Code is where ideas become real.',
     'Small details. Better experiences.',
-    'Senior Frontend Engineer',
+    'Software Engineer',
     'Product-minded Developer',
     'Building products, not just interfaces.',
     'Learning. Building. Evolving.',

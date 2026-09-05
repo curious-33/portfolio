@@ -6,7 +6,7 @@
 
 **Design meets engineering.**
 
-Personal site of [Mukhammad Sodik Ismoilov](https://curious.uz) — Senior Frontend Engineer in Tashkent.
+Personal site of [Mukhammad Sodik Ismoilov](https://curious.uz) — Software Engineer in Tashkent.
 
 [![Live](https://img.shields.io/badge/curious.uz-live-111?style=for-the-badge&labelColor=000)](https://curious.uz)
 [![Next.js](https://img.shields.io/badge/Next.js-16-000?style=for-the-badge&logo=nextdotjs)](https://nextjs.org)

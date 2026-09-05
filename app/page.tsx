@@ -57,7 +57,7 @@ export default async function Page() {
               <h2 className="font-medium text-lg">About</h2>
               <div className="flex flex-col gap-4 text-neutral-800 dark:text-neutral-300/80">
                 <p>
-                  I’m a Senior Frontend Engineer with 6+ years of experience building modern, responsive, and user-friendly web applications.
+                  I’m a Software Engineer building modern, responsive, and user-friendly web applications.
                 </p>
                 <p>
                   I enjoy turning ideas and designs into real products, solving complex problems, and paying attention to the small details that make a product feel right. I mainly work with React, Next.js, TypeScript, and modern frontend technologies.
