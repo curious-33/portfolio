@@ -16,7 +16,7 @@ import { useEffect, useRef } from 'react';
  *
  * @example
  * ```tsx
- * const playClick = useSound('/sounds/click.mp3');
+ * const playClick = useSound('/assets/audio/click.mp3');
  * // Later in an event handler:
  * playClick();
  * ```

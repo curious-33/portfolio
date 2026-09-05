@@ -36,7 +36,7 @@ const USER: User = {
   location: 'Tashkent, Uzbekistan',
   description:
     "My journey of building products, solving problems, and growing as an engineer.",
-  namePronunciationUrl: '/assets/name-pronunciation.mp3',
+  namePronunciationUrl: '/assets/audio/name-pronunciation.mp3',
   social: {
     twitter: 'https://twitter.com/curi0us_33',
     github: 'https://github.com/curious-33',

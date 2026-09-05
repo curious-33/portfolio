@@ -40,3 +40,7 @@ const nextConfig: NextConfig = {
 }
 
 export default withBundleAnalyzer(nextConfig)
+
+import { initOpenNextCloudflareForDev } from '@opennextjs/cloudflare'
+
+initOpenNextCloudflareForDev()
