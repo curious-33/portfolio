@@ -1,7 +1,16 @@
 import Info from '@/features/home/components/info';
 import { GameOfLife } from '@/components/game-of-life';
 import { Button } from '@/components/ui/button';
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Page not found',
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 export default function NotFound() {
   return (
@@ -14,7 +23,7 @@ export default function NotFound() {
         className="pointer-events-none z-0"
       />
       <div className="relative z-10 flex flex-col items-center gap-8 text-white">
-        <p className="font-bold text-4xl">Oops!</p>
+        <h1 className="font-bold text-4xl">Oops!</h1>
         <Info show={['time', 'screen']} />
         <Button
           variant="outline"

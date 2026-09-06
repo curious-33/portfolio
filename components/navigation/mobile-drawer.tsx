@@ -130,7 +130,7 @@ export const NavigationLink = memo(function NavigationLink({
         key={href}
         href={href}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="me noopener noreferrer"
         className="flex items-center justify-between gap-2 rounded-lg p-2 hover:bg-gray-200 dark:hover:bg-gray-800"
         onClick={onClose}
       >

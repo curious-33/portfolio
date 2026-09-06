@@ -6,30 +6,26 @@ import { USER } from '@/lib/config/user';
 import { GitHubContribution } from '@/features/home/components/github-contribution';
 import Info from '@/features/home/components/info';
 import { Projects } from '@/features/home/components/projects';
-import { JsonLd, type Organization, type WithContext } from '@/lib/seo/json-ld';
+import { JsonLd } from '@/lib/seo/json-ld';
 import { createMetadata } from '@/lib/seo/metadata';
+import { getHomeGraph } from '@/lib/seo/schema';
+import { defaultTitle } from '@/lib/seo/site';
 import { FlipSentences } from '@/components/ui/flip-sentences';
 import type { Metadata } from 'next/types';
 
-export async function generateMetadata(): Promise<Metadata> {
-  const title = USER.tagline;
-  const description = USER.description;
+export function generateMetadata(): Metadata {
   return createMetadata({
-    title: title,
-    description: description,
-    image: USER.image.profile,
+    title: defaultTitle,
+    description: USER.description,
+    path: '/',
+    absolute: true,
   });
 }
 
-export default async function Page() {
-  const jsonLd: WithContext<Organization> = {
-    '@type': 'Organization',
-    '@context': 'https://schema.org',
-  };
-
+export default function Page() {
   return (
     <>
-      <JsonLd code={jsonLd} />
+      <JsonLd code={getHomeGraph()} />
       <Info show={['time', 'screen']} />
       <ScrollArea useScrollAreaId className="">
         <FloatingHeader scrollTitle={USER.name} />
@@ -40,7 +36,10 @@ export default async function Page() {
               <div className="flex flex-col gap-2">
                 <div className="flex gap-2">
                   <h1 className="font-semibold text-3xl sm:text-l">
-                    {USER.firstName}
+                    {USER.firstName}{' '}
+                    <span className="font-medium text-muted-foreground">
+                      {USER.lastName}
+                    </span>
                   </h1>
                   <PronounceMyName
                     namePronunciationUrl={USER.namePronunciationUrl}

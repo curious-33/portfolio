@@ -35,7 +35,7 @@ const USER: User = {
   twitterHandle: '@curi0us_33',
   location: 'Tashkent, Uzbekistan',
   description:
-    "My journey of building products, solving problems, and growing as an engineer.",
+    'Mukhammad Sodik Ismoilov is a software engineer in Tashkent. I build modern web apps with React, Next.js, and TypeScript — turning ideas into products.',
   namePronunciationUrl: '/assets/audio/name-pronunciation.mp3',
   social: {
     twitter: 'https://twitter.com/curi0us_33',

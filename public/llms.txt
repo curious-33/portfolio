@@ -1,0 +1,25 @@
+# Mukhammad Sodik Ismoilov (Curious)
+
+> Software Engineer in Tashkent, Uzbekistan. I build modern web applications with React, Next.js, and TypeScript.
+
+- [Home](https://curious.uz/): About, GitHub activity, and selected projects
+- [Book a meeting](https://curious.uz/cal): Schedule a conversation
+
+## Projects
+
+- [Hawk](https://www.hawksearch.com/): AI-powered search and product discovery; Next.js and Sanity migration
+- [The Edge](https://www.buildmyedge.com/): Learning platform for career and social-emotional skills
+- [New Era Life](https://site.neweralife.com/): Healthcare platform frontend with WordPress and Faust.js
+- Partie: Social matchmaking for gamers with real-time voice and video
+- [GoPurePlank](https://gopureplank.com/): Admin panel for a smart fitness product
+- [Stepone](https://stepone.uz/): Subscription e-learning platform
+- [Shaffof Yo‘l](https://shaffofyul.uz/en): Public road infrastructure map for Uzbekistan
+- [TPP](https://tpp.uz/): Corporate platform for Uzbekistan's energy sector
+- [EPA Subsidy System](https://subsidiya.epauzb.uz/en): Government subsidy application workflows
+
+## Contact
+
+- Email: mukhammadsodik.uz@gmail.com
+- GitHub: https://github.com/curious-33
+- LinkedIn: https://www.linkedin.com/in/curious/
+- X: https://twitter.com/curi0us_33

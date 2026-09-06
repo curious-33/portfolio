@@ -1,13 +1,15 @@
-import type { Thing, WithContext } from 'schema-dts';
+import type { Graph, Thing, WithContext } from 'schema-dts';
 
 type JsonLdProps = {
-  code: WithContext<Thing>;
+  code: Graph | WithContext<Thing>;
 };
 
 export const JsonLd = ({ code }: JsonLdProps) => (
   <script
     type="application/ld+json"
-    dangerouslySetInnerHTML={{ __html: JSON.stringify(code) }}
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify(code).replace(/</g, '\\u003c'),
+    }}
   />
 );
 
