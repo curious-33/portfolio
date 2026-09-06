@@ -1,7 +1,5 @@
 import { USER } from '@/lib/config/user';
 import { ImageResponse } from 'next/og';
-import { readFile } from 'node:fs/promises';
-import { join } from 'node:path';
 
 export const alt = `${USER.name} — ${USER.jobTitle}`;
 export const size = {
@@ -10,11 +8,7 @@ export const size = {
 };
 export const contentType = 'image/png';
 
-export default async function OpenGraphImage() {
-  const fontMedium = await readFile(
-    join(process.cwd(), 'public/assets/fonts/X-Medium.woff2')
-  );
-
+export default function OpenGraphImage() {
   return new ImageResponse(
     (
       <div
@@ -27,7 +21,6 @@ export default async function OpenGraphImage() {
           backgroundColor: '#09090b',
           color: '#fafafa',
           padding: '72px 80px',
-          fontFamily: 'X',
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: 40 }}>
@@ -49,7 +42,7 @@ export default async function OpenGraphImage() {
             <div
               style={{
                 fontSize: 52,
-                fontWeight: 500,
+                fontWeight: 600,
                 letterSpacing: '-0.04em',
                 lineHeight: 1.1,
               }}
@@ -63,7 +56,13 @@ export default async function OpenGraphImage() {
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-          <div style={{ fontSize: 32, color: '#e4e4e7', letterSpacing: '-0.02em' }}>
+          <div
+            style={{
+              fontSize: 32,
+              color: '#e4e4e7',
+              letterSpacing: '-0.02em',
+            }}
+          >
             {USER.tagline}
           </div>
           <div
@@ -81,16 +80,6 @@ export default async function OpenGraphImage() {
         </div>
       </div>
     ),
-    {
-      ...size,
-      fonts: [
-        {
-          name: 'X',
-          data: fontMedium,
-          style: 'normal',
-          weight: 500,
-        },
-      ],
-    }
+    size
   );
 }
