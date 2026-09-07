@@ -20,6 +20,8 @@ export type Project = {
 	skills: string[]
 	/** Optional rich description; Markdown and line breaks supported. */
 	description?: string
+	/** Short callout for personal contribution/role on the project. */
+	highlight?: string
 	/** Logo image URL (absolute or path under /public). */
 	logo?: string
 	/** Whether the project card is expanded by default in the UI. */
@@ -157,6 +159,7 @@ The project focuses on:
 			'REST APIs',
 		],
 		logo: 'https://res.cloudinary.com/curious-cloud/image/upload/v1788342951/the-edge.avif',
+		highlight: 'Frontend Lead · 3+ years on the team',
 		description: `A learning platform helping students build career, life, and social-emotional skills.
 
 Worked on:
@@ -240,6 +243,7 @@ Contributions include:
 			'Plyr.io',
 		],
 		logo: 'https://res.cloudinary.com/curious-cloud/image/upload/v1788607161/logo.png',
+		highlight: 'Owned entire UI · admin + client platforms',
 		description: `A subscription-based e-learning platform where students progress through courses by completing lessons, quizzes, and practical tasks.
 
 Built the frontend architecture independently for both student and admin platforms.
@@ -262,6 +266,7 @@ Features include:
 		link: 'https://shaffofyul.uz/en',
 		skills: ['React', 'Redux', 'Interactive Maps'],
 		logo: 'https://res.cloudinary.com/curious-cloud/image/upload/v1788342951/shaffof.svg',
+		highlight: 'Built interactive map · OpenStreetMap',
 		description: `A public platform providing transparent information about roads and infrastructure in Uzbekistan.
 
 Built the interactive map experience for visualizing:
@@ -305,6 +310,7 @@ Contributed to:
 			'Role-based Access',
 		],
 		logo: 'https://res.cloudinary.com/curious-cloud/image/upload/v1788607785/Frame_14.png',
+		highlight: 'Built admin panel core · through to project end',
 		description: `A government platform for managing business subsidy applications and approval workflows.
 
 Built the frontend architecture from scratch.

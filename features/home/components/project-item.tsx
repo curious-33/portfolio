@@ -1,4 +1,4 @@
-import { BoxIcon, InfinityIcon, LinkIcon } from 'lucide-react';
+import { BoxIcon, InfinityIcon, LinkIcon, SparkleIcon } from 'lucide-react';
 import Image from 'next/image';
 
 import { Icons } from '@/components/icons';
@@ -138,6 +138,16 @@ export function ProjectItem({
             )}
           >
             <div className="space-y-4 p-4 duration-300 group-data-[state=closed]/content:animate-fade-out group-data-[state=open]/content:animate-fade-in">
+              {project.highlight && (
+                <p className="flex items-start gap-1.5 text-sm font-medium text-foreground">
+                  <SparkleIcon
+                    className="mt-0.5 size-3.5 shrink-0 fill-accent-foreground text-accent-foreground"
+                    aria-hidden
+                  />
+                  {project.highlight}
+                </p>
+              )}
+
               {project.description && (
                 <ProseMono>
                   <Markdown>{project.description}</Markdown>
