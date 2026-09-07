@@ -42,49 +42,48 @@ export const getRootMetadata = (): Metadata => {
   const url = getSiteUrl();
 
   return {
-    metadataBase: new URL(url),
-    title: {
-      default: defaultTitle,
-      template: `%s · ${USER.name}`,
-    },
-    description: USER.description,
-    applicationName: USER.name,
-    authors: [{ name: USER.name, url }],
-    creator: USER.name,
-    publisher: USER.name,
-    referrer: 'origin-when-cross-origin',
-    formatDetection: {
-      email: false,
-      address: false,
-      telephone: false,
-    },
-    robots: INDEXABLE,
-    alternates: {
-      canonical: '/',
-    },
-    openGraph: {
-      type: 'website',
-      locale: 'en_US',
-      url,
-      siteName: USER.name,
-      title: defaultTitle,
-      description: USER.description,
-    },
-    twitter: {
-      card: 'summary_large_image',
-      creator: USER.twitterHandle,
-      site: USER.twitterHandle,
-      title: defaultTitle,
-      description: USER.description,
-    },
-    appleWebApp: {
-      capable: true,
-      statusBarStyle: 'default',
-      title: USER.name,
-    },
-    verification: verification(),
-   
-  };
+		metadataBase: new URL(url),
+		title: {
+			default: defaultTitle,
+			template: `%s · ${USER.firstName}`,
+		},
+		description: USER.description,
+		applicationName: USER.firstName,
+		authors: [{ name: USER.firstName, url }],
+		creator: USER.firstName,
+		publisher: USER.firstName,
+		referrer: 'origin-when-cross-origin',
+		formatDetection: {
+			email: false,
+			address: false,
+			telephone: false,
+		},
+		robots: INDEXABLE,
+		alternates: {
+			canonical: '/',
+		},
+		openGraph: {
+			type: 'website',
+			locale: 'en_US',
+			url,
+			siteName: USER.firstName,
+			title: defaultTitle,
+			description: USER.description,
+		},
+		twitter: {
+			card: 'summary_large_image',
+			creator: USER.twitterHandle,
+			site: USER.twitterHandle,
+			title: defaultTitle,
+			description: USER.description,
+		},
+		appleWebApp: {
+			capable: true,
+			statusBarStyle: 'default',
+			title: USER.firstName,
+		},
+		verification: verification(),
+	}
 };
 
 /**
@@ -98,25 +97,25 @@ export const createMetadata = ({
   absolute = false,
 }: MetadataGenerator): Metadata => {
   const url = absoluteUrl(path);
-  const socialTitle = absolute ? title : `${title} · ${USER.name}`;
+  const socialTitle = absolute ? title : `${title} · ${USER.firstName}`
 
   return {
-    title: absolute ? { absolute: title } : title,
-    description,
-    alternates: {
-      canonical: path,
-    },
-    openGraph: {
-      title: socialTitle,
-      description,
-      url,
-      type: 'website',
-      locale: 'en_US',
-      siteName: USER.name,
-    },
-    twitter: {
-      title: socialTitle,
-      description,
-    },
-  };
+		title: absolute ? { absolute: title } : title,
+		description,
+		alternates: {
+			canonical: path,
+		},
+		openGraph: {
+			title: socialTitle,
+			description,
+			url,
+			type: 'website',
+			locale: 'en_US',
+			siteName: USER.firstName,
+		},
+		twitter: {
+			title: socialTitle,
+			description,
+		},
+	}
 };

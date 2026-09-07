@@ -1,4 +1,4 @@
-# Mukhammad Sodik Ismoilov (Curious)
+# Mukhammad Sodik(Curious)
 
 > Software Engineer in Tashkent, Uzbekistan. I build modern web applications with React, Next.js, and TypeScript.
 

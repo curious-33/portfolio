@@ -32,79 +32,79 @@ export function MobileDrawer() {
   }
 
   return (
-    <Drawer open={open} onOpenChange={setOpen}>
-      <DrawerTrigger asChild>
-        <Button variant="ghost" size="icon" title="Toggle drawer">
-          <CommandIcon size={16} />
-        </Button>
-      </DrawerTrigger>
-      <DrawerContent className="h-4/5">
-        <VisuallyHidden asChild>
-          <DrawerTitle>Navigation Menu</DrawerTitle>
-        </VisuallyHidden>
-        <VisuallyHidden asChild>
-          <DrawerDescription>
-            Navigate through the website sections and social links
-          </DrawerDescription>
-        </VisuallyHidden>
-        <div className="overflow-y-auto p-4">
-          <div className="flex w-full flex-col space-y-4 text-sm">
-            <div className="flex flex-col gap-4">
-              <Link
-                href="/"
-                className="link-card inline-flex items-center gap-2 p-2"
-                onClick={() => setOpen(false)}
-              >
-                <Image
-                  src={USER.image.profile}
-                  alt={USER.name}
-                  width={40}
-                  height={40}
-                  className="rounded-full border shadow-xs"
-                />
-                <div className="flex flex-col">
-                  <span className="font-semibold tracking-tight">
-                    {USER.name}
-                  </span>
-                  <span className="text-neutral-600 dark:text-neutral-400">
-                    {USER.tagline}
-                  </span>
-                </div>
-              </Link>
-              <div className="flex flex-col gap-1">
-                {DockConfig.navbar.map((link) => (
-                  <NavigationLink
-                    key={link.href}
-                    href={link.href}
-                    label={link.label}
-                    icon={<link.icon className="h-4 w-4" />}
-                    onClose={() => setOpen(false)}
-                  />
-                ))}
-              </div>
-            </div>
-            <hr className="border-neutral-200 dark:border-neutral-800" />
-            <div className="flex flex-col gap-2 text-sm">
-              <span className="px-2 font-medium text-neutral-600 text-xs leading-relaxed dark:text-neutral-400">
-                Social
-              </span>
-              <div className="flex flex-col gap-1">
-                {Object.values(DockConfig.contact.social).map((profile) => (
-                  <NavigationLink
-                    key={profile.url}
-                    href={profile.url}
-                    label={profile.name}
-                    icon={<profile.icon className="h-4 w-4" />}
-                    onClose={() => setOpen(false)}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </DrawerContent>
-    </Drawer>
-  );
+		<Drawer open={open} onOpenChange={setOpen}>
+			<DrawerTrigger asChild>
+				<Button variant='ghost' size='icon' title='Toggle drawer'>
+					<CommandIcon size={16} />
+				</Button>
+			</DrawerTrigger>
+			<DrawerContent className='h-4/5'>
+				<VisuallyHidden asChild>
+					<DrawerTitle>Navigation Menu</DrawerTitle>
+				</VisuallyHidden>
+				<VisuallyHidden asChild>
+					<DrawerDescription>
+						Navigate through the website sections and social links
+					</DrawerDescription>
+				</VisuallyHidden>
+				<div className='overflow-y-auto p-4'>
+					<div className='flex w-full flex-col space-y-4 text-sm'>
+						<div className='flex flex-col gap-4'>
+							<Link
+								href='/'
+								className='link-card inline-flex items-center gap-2 p-2'
+								onClick={() => setOpen(false)}
+							>
+								<Image
+									src={USER.image.profile}
+									alt={USER.firstName}
+									width={40}
+									height={40}
+									className='rounded-full border shadow-xs'
+								/>
+								<div className='flex flex-col'>
+									<span className='font-semibold tracking-tight'>
+										{USER.firstName}
+									</span>
+									<span className='text-neutral-600 dark:text-neutral-400'>
+										{USER.tagline}
+									</span>
+								</div>
+							</Link>
+							<div className='flex flex-col gap-1'>
+								{DockConfig.navbar.map((link) => (
+									<NavigationLink
+										key={link.href}
+										href={link.href}
+										label={link.label}
+										icon={<link.icon className='h-4 w-4' />}
+										onClose={() => setOpen(false)}
+									/>
+								))}
+							</div>
+						</div>
+						<hr className='border-neutral-200 dark:border-neutral-800' />
+						<div className='flex flex-col gap-2 text-sm'>
+							<span className='px-2 font-medium text-neutral-600 text-xs leading-relaxed dark:text-neutral-400'>
+								Social
+							</span>
+							<div className='flex flex-col gap-1'>
+								{Object.values(DockConfig.contact.social).map((profile) => (
+									<NavigationLink
+										key={profile.url}
+										href={profile.url}
+										label={profile.name}
+										icon={<profile.icon className='h-4 w-4' />}
+										onClose={() => setOpen(false)}
+									/>
+								))}
+							</div>
+						</div>
+					</div>
+				</div>
+			</DrawerContent>
+		</Drawer>
+	)
 }
 
 type NavigationLinkProps = {

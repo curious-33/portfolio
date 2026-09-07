@@ -10,7 +10,7 @@ export function generateMetadata(): Metadata {
   return createMetadata({
     title: 'Book a Meeting',
     description:
-      'Schedule a meeting with Mukhammad Sodik Ismoilov to discuss design, engineering, product, or anything else.',
+      'Schedule a meeting with Mukhammad Sodik to discuss design, engineering, product, or anything else.',
     path: '/cal',
   });
 }

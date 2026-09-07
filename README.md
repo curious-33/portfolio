@@ -1,12 +1,12 @@
 <div align="center">
 
-<img src="https://res.cloudinary.com/curious-cloud/image/upload/c_fill,w_160,h_160,g_face,r_max/v1788180369/curious.jpg" width="96" height="96" alt="Mukhammad Sodik Ismoilov" />
+<img src="https://res.cloudinary.com/curious-cloud/image/upload/c_fill,w_160,h_160,g_face,r_max/v1788180369/curious.jpg" width="96" height="96" alt="Mukhammad Sodik" />
 
 # curious.uz
 
 **Design meets engineering.**
 
-Personal site of [Mukhammad Sodik Ismoilov](https://curious.uz) — Software Engineer in Tashkent.
+Personal site of [Mukhammad Sodik](https://curious.uz) — Software Engineer in Tashkent.
 
 [![Live](https://img.shields.io/badge/curious.uz-live-111?style=for-the-badge&labelColor=000)](https://curious.uz)
 [![Next.js](https://img.shields.io/badge/Next.js-16-000?style=for-the-badge&logo=nextdotjs)](https://nextjs.org)

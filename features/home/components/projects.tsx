@@ -1,6 +1,6 @@
 import { CollapsibleList } from '@/components/collapsible-list';
 
-import { PROJECTS } from '@/lib/config/projects';
+import { COMPANY_PROJECTS, PERSONAL_PROJECTS } from '@/lib/config/projects';
 import {
   Panel,
   PanelHeader,
@@ -11,21 +11,40 @@ import { ProjectItem } from './project-item';
 
 export function Projects() {
   return (
-    <Panel id="projects" className="space-y-4">
-      <PanelHeader>
-        <PanelTitle>
-          Projects
-          <PanelTitleSup>({PROJECTS.length})</PanelTitleSup>
-        </PanelTitle>
-      </PanelHeader>
+    <>
+      <Panel id='personal-projects' className='space-y-4'>
+        <PanelHeader>
+          <PanelTitle>
+            Personal Projects
+            <PanelTitleSup>({PERSONAL_PROJECTS.length})</PanelTitleSup>
+          </PanelTitle>
+        </PanelHeader>
 
-      <CollapsibleList
-        items={PROJECTS}
-        max={10}
-        renderItem={(item, isFirst, isLast) => (
-          <ProjectItem project={item} isFirst={isFirst} isLast={isLast} />
-        )}
-      />
-    </Panel>
+        <CollapsibleList
+          items={PERSONAL_PROJECTS}
+          max={10}
+          renderItem={(item, isFirst, isLast) => (
+            <ProjectItem project={item} isFirst={isFirst} isLast={isLast} />
+          )}
+        />
+      </Panel>
+
+      <Panel id='company-projects' className='space-y-4'>
+        <PanelHeader>
+          <PanelTitle>
+            Company Projects
+            <PanelTitleSup>({COMPANY_PROJECTS.length})</PanelTitleSup>
+          </PanelTitle>
+        </PanelHeader>
+
+        <CollapsibleList
+          items={COMPANY_PROJECTS}
+          max={10}
+          renderItem={(item, isFirst, isLast) => (
+            <ProjectItem project={item} isFirst={isFirst} isLast={isLast} />
+          )}
+        />
+      </Panel>
+    </>
   );
 }
