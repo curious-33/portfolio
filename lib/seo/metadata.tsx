@@ -45,13 +45,13 @@ export const getRootMetadata = (): Metadata => {
 		metadataBase: new URL(url),
 		title: {
 			default: defaultTitle,
-			template: `%s · ${USER.firstName}`,
+			template: `%s · ${USER.nickname}`,
 		},
 		description: USER.description,
-		applicationName: USER.firstName,
-		authors: [{ name: USER.firstName, url }],
-		creator: USER.firstName,
-		publisher: USER.firstName,
+		applicationName: USER.nickname,
+		authors: [{ name: USER.nickname, url }],
+		creator: USER.nickname,
+		publisher: USER.nickname,
 		referrer: 'origin-when-cross-origin',
 		formatDetection: {
 			email: false,
@@ -66,7 +66,7 @@ export const getRootMetadata = (): Metadata => {
 			type: 'website',
 			locale: 'en_US',
 			url,
-			siteName: USER.firstName,
+			siteName: USER.nickname,
 			title: defaultTitle,
 			description: USER.description,
 		},
@@ -80,7 +80,7 @@ export const getRootMetadata = (): Metadata => {
 		appleWebApp: {
 			capable: true,
 			statusBarStyle: 'default',
-			title: USER.firstName,
+			title: USER.nickname,
 		},
 		verification: verification(),
 	}
@@ -97,7 +97,7 @@ export const createMetadata = ({
   absolute = false,
 }: MetadataGenerator): Metadata => {
   const url = absoluteUrl(path);
-  const socialTitle = absolute ? title : `${title} · ${USER.firstName}`
+  const socialTitle = absolute ? title : `${title} · ${USER.nickname}`
 
   return {
 		title: absolute ? { absolute: title } : title,
@@ -111,7 +111,7 @@ export const createMetadata = ({
 			url,
 			type: 'website',
 			locale: 'en_US',
-			siteName: USER.firstName,
+			siteName: USER.nickname,
 		},
 		twitter: {
 			title: socialTitle,

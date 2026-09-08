@@ -1,5 +1,6 @@
 export type User = {
-	firstName: string
+	name: string
+	nickname: string
 	email: string
 	location: string
 	domain: string
@@ -22,7 +23,8 @@ export type User = {
 }
 
 const USER: User = {
-	firstName: 'Mukhammad Sodik',
+	name: 'Mukhammad Sodik',
+	nickname: 'Curious',
 	email: 'mukhammadsodik.uz@gmail.com',
 	domain: 'curious.uz',
 	jobTitle: 'Software Engineer',

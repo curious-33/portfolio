@@ -36,14 +36,14 @@ export function getPerson(): Person {
 	return {
 		'@type': 'Person',
 		'@id': personId(),
-		name: USER.firstName,
-		givenName: USER.firstName,
-		alternateName: ['Curious', USER.username],
+		name: USER.name,
+		givenName: USER.name,
+		alternateName: [USER.nickname, USER.username],
 		url: getSiteUrl(),
 		image: {
 			'@type': 'ImageObject',
 			url: USER.image.profile,
-			caption: USER.firstName,
+			caption: USER.name,
 		},
 		email: USER.email,
 		jobTitle: USER.jobTitle,
@@ -71,7 +71,7 @@ function getWebsite(): WebSite {
 		'@type': 'WebSite',
 		'@id': websiteId(),
 		url: getSiteUrl(),
-		name: USER.firstName,
+		name: USER.name,
 		alternateName: USER.domain,
 		description: USER.description,
 		inLanguage: 'en',
@@ -93,7 +93,7 @@ function getProfilePage(): ProfilePage {
 		primaryImageOfPage: {
 			'@type': 'ImageObject',
 			url: USER.image.profile,
-			caption: USER.firstName,
+			caption: USER.name,
 		},
 	}
 }
@@ -111,7 +111,7 @@ export function getContactPageGraph(): Graph {
 		'@type': 'ContactPage',
 		'@id': `${url}#webpage`,
 		url,
-		name: `Book a Meeting · ${USER.firstName}`,
+		name: `Book a Meeting · ${USER.name}`,
 		description:
 			'Schedule a meeting to discuss design, engineering, product, or anything else.',
 		inLanguage: 'en',

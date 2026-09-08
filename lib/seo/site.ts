@@ -1,6 +1,6 @@
 import { USER } from '@/lib/config/user'
 
-export const defaultTitle = `${USER.firstName} — ${USER.jobTitle}`
+export const defaultTitle = `${USER.nickname} — ${USER.jobTitle}`
 
 export function getSiteUrl(): string {
 	return USER.website ?? `https://${USER.domain}`

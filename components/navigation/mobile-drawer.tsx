@@ -57,14 +57,14 @@ export function MobileDrawer() {
 							>
 								<Image
 									src={USER.image.profile}
-									alt={USER.firstName}
+									alt={USER.nickname}
 									width={40}
 									height={40}
 									className='rounded-full border shadow-xs'
 								/>
 								<div className='flex flex-col'>
 									<span className='font-semibold tracking-tight'>
-										{USER.firstName}
+										{USER.name}
 									</span>
 									<span className='text-neutral-600 dark:text-neutral-400'>
 										{USER.tagline}

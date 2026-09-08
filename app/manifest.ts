@@ -3,8 +3,8 @@ import type { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
 	return {
-		name: `${USER.firstName} — ${USER.jobTitle}`,
-		short_name: 'Curious',
+		name: `${USER.nickname} — ${USER.jobTitle}`,
+		short_name: USER.nickname,
 		description: USER.description,
 		start_url: '/',
 		scope: '/',

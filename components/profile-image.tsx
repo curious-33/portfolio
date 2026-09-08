@@ -8,7 +8,7 @@ export const SelfImage = () => (
 		height={64}
 		priority={true}
 		className='rounded-full bg-white'
-		alt={`A photo of ${USER.firstName}`}
+		alt={`A photo of ${USER.nickname}`}
 	/>
 )
 
@@ -21,7 +21,7 @@ export const ProfileImage = () => {
 				sizes='100px'
 				priority
 				className='h-full w-full select-none rounded-full bg-secondary object-cover ring-1 ring-border ring-offset-2 ring-offset-primary'
-				alt={`Profile of ${USER.firstName}`}
+				alt={`Profile of ${USER.nickname}`}
 			/>
 		</div>
 	)

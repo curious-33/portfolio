@@ -1,7 +1,7 @@
 import { USER } from '@/lib/config/user';
 import { ImageResponse } from 'next/og';
 
-export const alt = `${USER.firstName} — ${USER.jobTitle}`
+export const alt = `${USER.nickname} — ${USER.jobTitle}`
 export const size = {
   width: 1200,
   height: 630,
@@ -47,7 +47,7 @@ export default function OpenGraphImage() {
 								lineHeight: 1.1,
 							}}
 						>
-							{USER.firstName}
+							{USER.nickname}
 						</div>
 						<div style={{ fontSize: 28, color: '#a1a1aa' }}>
 							{USER.jobTitle}

@@ -28,7 +28,7 @@ export default function Page() {
 			<JsonLd code={getHomeGraph()} />
 			<Info show={['time', 'screen']} />
 			<ScrollArea useScrollAreaId className=''>
-				<FloatingHeader scrollTitle={USER.firstName} />
+				<FloatingHeader scrollTitle={USER.name} />
 				<div className='layout relative z-10 content-wrapper mb-10'>
 					<div className='flex flex-col gap-12'>
 						<header className='flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6'>
@@ -36,14 +36,14 @@ export default function Page() {
 							<div className='flex flex-col gap-2'>
 								<div className='flex gap-2'>
 									<h1 className='font-semibold text-3xl sm:text-l'>
-										{USER.firstName}
+										{USER.name}
 									</h1>
 									<PronounceMyName
 										namePronunciationUrl={USER.namePronunciationUrl}
 									/>
 								</div>
 								<p className='text-sm text-muted-foreground'>
-									If that&apos;s hard to pronounce, Curious is fine.
+									If that&apos;s hard to pronounce, {USER.nickname} is fine.
 								</p>
 								<FlipSentences sentences={USER.flipSentences} />
 							</div>
